@@ -8,9 +8,9 @@
 # reverse('Greetings!') === '!sgniteerG'
 
 
-def reverse(input_string):
+def reverse(input_string: str) -> str:
     output = ''
-
+    # loop over input and append each character in front
     for char in input_string:
         output = char + output
 

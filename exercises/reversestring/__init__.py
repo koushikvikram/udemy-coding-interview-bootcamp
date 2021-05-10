@@ -7,11 +7,30 @@
 # reverse('hello') === 'olleh'
 # reverse('Greetings!') === '!sgniteerG'
 
+from functools import reduce
 
+
+# method 1
 def reverse(input_string: str) -> str:
     output = ''
+    
     # loop over input and append each character in front
     for char in input_string:
         output = char + output
 
     return output
+
+
+# # method 2
+# def reverse(input_string: str) -> str:
+#     '''works only when input string is at least 2 characters long'''
+#     if len(input_string) < 2:
+#         raise Exception("input string should be at least 2 characters long")
+
+#     return reduce(lambda x,y:y+x, list(input_string))
+
+
+# # method 3
+# def reverse(input_string: str) -> str:
+#     '''using indexing'''
+#     return input_string[::-1]   

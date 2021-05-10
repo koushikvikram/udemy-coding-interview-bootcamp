@@ -10,7 +10,7 @@
 
 # # Method 1
 def palindrome(input_string: str) -> bool:
-    # easiest - reverse input and compare
+    # straightforward solution - reverse input and compare
     return input_string == input_string[::-1]
 
 

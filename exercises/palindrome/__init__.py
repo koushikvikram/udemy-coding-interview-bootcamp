@@ -8,15 +8,42 @@
 #    palindrome("abcdefg") === false
 
 
+# Method 1
 def palindrome(input_string: str) -> bool:
-    # recursive solution
-    if len(input_string) <= 1:
+    # recursive
+    if len(input_string) < 2:
         return True
     if input_string[0] != input_string[-1]:
         return False
     return palindrome(input_string[1:-1])
 
 
+# # Method 2
 # def palindrome(input_string: str) -> bool:
-#     # iterative solution
-#     raise NotImplementedError
+#     # iterative
+#     if len(input_string) < 2:
+#         return True
+        
+#     while len(input_string) >= 2:
+#         if input_string[0] != input_string[-1]:
+#             return False
+#         input_string = input_string[1:-1]
+
+#     return True
+
+
+# # Method 3
+# def palindrome(input_string: str) -> str:
+#     # xor solution - access only one character at a time from input
+#     # reduce(lambda x,y:ord(x)^ord(y), input_string) won't work in place of loop 
+#     # as previous result would be an int and it can't be converted to ASCII
+#     if len(input_string) < 2:
+#         return True
+
+#     xor_result = 0
+#     for c in input_string:
+#         xor_result ^= ord(c)
+
+#     middle_char = input_string[len(input_string)//2]
+    
+#     return (xor_result == 0) or (xor_result == ord(middle_char))

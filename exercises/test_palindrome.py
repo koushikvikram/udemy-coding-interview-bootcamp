@@ -5,7 +5,7 @@ from palindrome import palindrome
 class TestPalindrome(unittest.TestCase):
     def test_palindrome(self):
         palindromes = ['aa', 'mam', '1001', 'Fish hsiF', '!oxo!', ' tat ']
-        not_palindromes = [' abc', 'def ', 'hello', 'Madam']
+        not_palindromes = [' abc', 'def ', 'hello', 'Madam', 'modem']
 
         for p in palindromes:
             with self.subTest(i=p):

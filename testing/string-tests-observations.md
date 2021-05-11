@@ -16,3 +16,7 @@
 |numbers                                | '1001'                    |
 |change correct answer by one character | to test palindrome,       |
 |                                       | change 'madam' to 'modem' |
+|all same characters                    | 'aaaa'                    |
+|odd length string                      | 'abc'                     |
+|even length string                     | 'ab'                      |
+|null                                   | None                      |

@@ -9,6 +9,11 @@
 # chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
 
-def chunk():
-    raise NotImplementedError
+def chunk(input_list, chunk_size):
+    assert chunk_size >= 1, "chunk size should be at least 1"
+    output = []
+
+    for i in range(0, len(input_list), chunk_size):
+        output.append(list(input_list[i: i+chunk_size]))
     
+    return output

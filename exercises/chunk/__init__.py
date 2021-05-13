@@ -8,12 +8,33 @@
 # chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
 # chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
+from typing import List
 
-def chunk(input_list, chunk_size):
+
+# # Method 1
+# def chunk(input_list: List[int], chunk_size: int) -> List[List[int]]:
+#     assert chunk_size >= 1, "chunk size should be at least 1"
+#     output = []
+
+#     for i in range(0, len(input_list), chunk_size):
+#         output.append(list(input_list[i: i+chunk_size]))
+    
+#     return output
+
+
+# Method 2
+def chunk(input_list: List[int], chunk_size: int) -> List[List[int]]:
+    # while loop solution
     assert chunk_size >= 1, "chunk size should be at least 1"
     output = []
+    i = 0
 
-    for i in range(0, len(input_list), chunk_size):
-        output.append(list(input_list[i: i+chunk_size]))
-    
+    while i < len(input_list):
+        if i+chunk_size < len(input_list):
+            output.append(input_list[i:i+chunk_size])
+        else:
+            output.append(input_list[i:])
+        i += chunk_size
+
     return output
+    

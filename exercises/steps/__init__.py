@@ -54,26 +54,35 @@
 #     # base case
 #     if row == n:
 #         return
-
+    
 #     if len(stairs) <= row:
 #         stairs += '#'
 #     else:
 #         stairs += ' '
 
+#     # recursive case (if)
 #     if len(stairs) == n:
 #         print(stairs)
-#         row += 1
-#         return steps(n, row=row)
-    
-#     # recursive case    
-#     return steps(n, row=row, stairs=stairs)
+#         return steps(n, row+1)
+#     # recursive case (else)
+#     return steps(n, row, stairs)
 
-
-# try recursion without resetting stairs
 
 # # method 5
 def steps(n: int) -> None:
     # while loop solution
-    raise NotImplementedError
+    row = 1
+    # row starts from 1
+    while row <= n:
+        stairs = ''
+        # len(stairs) starts from 0
+        while len(stairs) < n:
+            if len(stairs) < row:
+                stairs += '#'
+            else:
+                stairs += ' '
+        print(stairs)
+        row += 1
 
-# steps(10)
+
+steps(10)

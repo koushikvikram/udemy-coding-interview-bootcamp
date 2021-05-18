@@ -16,6 +16,12 @@
 #     [10,  9,  8, 7]]
 
 
+# ------------------------------------------------------------------------------------------------------------------------------- #
+# ---------------------------------------------------------- Solution 1 --------------------------------------------------------- #
+# ------------------------------------------------------------------------------------------------------------------------------- #
+
+
+"""
 def zero_matrix(n):
     '''creates a matrix of zeros of dimension nxn'''
     output_matrix = []
@@ -86,6 +92,7 @@ def print_spiral_matrix(n):
 
 
 print_spiral_matrix(4)
+"""
 
 
 # ---------------------------------------------------------------------------------------------------------------------------------
@@ -123,3 +130,83 @@ The, we'll loop from values 2 to n*n
     if it's not possible to take a step in the current direction or if the value in the next step is already filled,
     change direction, take a step and set value
 '''
+
+
+# ------------------------------------------------------------------------------------------------------------------------------- #
+# ---------------------------------------------------------- Solution 2 --------------------------------------------------------- #
+# ------------------------------------------------------------------------------------------------------------------------------- #
+
+'''
+Pseudocode
+----------
+Create empty array of arrays called 'results'
+Create a counter variable starting at 1
+As long as (start column <= end column) AND (start row <= end row)
+    # side 1 - top row
+    loop from start column to end column
+        at results[start_row][i] assign counter variable
+        increment counter
+    increment start row
+    
+    # side 2 - right column
+    loop from start row to end row
+        at results[i][end_column] assign counter variable
+        increment counter
+    decrement end column
+
+    # side 3 - bottom row
+    loop from end column to start column
+        at results[end_row][i] assign counter variable
+        increment counter
+    decrement end row
+
+    # side 4 - left column
+    loop from end row to start row
+        at results[i][start_column] assign counter variable
+        increment counter
+    increment start column
+'''
+
+
+def matrix(n):
+    results = []
+
+    for r in range(n):
+        row = []
+        for c in range(n):
+            row.append(0)
+        results.append(row)
+
+    counter = 1
+    start_column, end_column = 0, n-1
+    start_row, end_row = 0, n-1
+
+    while (start_column <= end_column) and (start_row <= end_row):
+        # top row
+        for i in range(start_column, end_column+1):
+            results[start_row][i] = counter
+            counter += 1
+        start_row += 1
+
+        # right column
+        for i in range(start_row, end_row+1):
+            results[i][end_column] = counter
+            counter += 1
+        end_column -= 1
+
+        # bottom row
+        for i in range(start_column, end_column+1)[::-1]:
+            results[end_row][i] = counter
+            counter += 1
+        end_row -= 1
+
+        # left column
+        for i in range(start_row, end_row+1)[::-1]:
+            results[i][start_column] = counter
+            counter += 1
+        start_column += 1
+
+    return results
+
+
+print(matrix(4))

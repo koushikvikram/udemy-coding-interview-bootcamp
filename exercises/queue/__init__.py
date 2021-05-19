@@ -20,7 +20,10 @@ class Queue:
         self.queue = self.queue[1:]
         return first_element
     def peek(self):
-        return self.queue[0]
+        try:
+            return self.queue[0]
+        except:
+            return None
     def size(self):
         return len(self.queue)    
 

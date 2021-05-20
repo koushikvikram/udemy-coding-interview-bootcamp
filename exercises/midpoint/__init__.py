@@ -122,7 +122,10 @@ class LinkedList:
 
 # # method 1
 # def midpoint(linked_list):
-#     '''recursive solution'''
+#     '''recursive solution - not accepted
+#        we're asked to iterate through the list only once,
+#        but everytime removeLast() is called, 
+#        an entire iteration happens through the list'''
 #     # base case 1
 #     if not linked_list.head.next:
 #         return linked_list.head
